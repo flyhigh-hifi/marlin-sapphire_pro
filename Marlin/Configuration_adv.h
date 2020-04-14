@@ -584,7 +584,7 @@
 // Homing hits each endstop, retracts by these distances, then does a slower bump.
 #define X_HOME_BUMP_MM 0
 #define Y_HOME_BUMP_MM 0
-#define Z_HOME_BUMP_MM 2
+#define Z_HOME_BUMP_MM 0
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 // #define QUICK_HOME                       // If homing includes X and Y, do a diagonal move initially
 #define HOMING_BACKOFF_MM { 5, 5, 10 }  // (mm) Move away from the endstops after homing
@@ -1513,7 +1513,7 @@
   #define MIN_PROBE_EDGE_LEFT MIN_PROBE_EDGE
   #define MIN_PROBE_EDGE_RIGHT MIN_PROBE_EDGE
   #define MIN_PROBE_EDGE_FRONT MIN_PROBE_EDGE
-  #define MIN_PROBE_EDGE_BACK MIN_PROBE_EDGE
+  #define MIN_PROBE_EDGE_BACK MIN_PROBE_EDGE*6
   // #define MIN_PROBE_EDGE_LEFT 0
   // #define MIN_PROBE_EDGE_RIGHT 0
   // #define MIN_PROBE_EDGE_FRONT 0
@@ -2019,7 +2019,7 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT       600
+    #define Z_CURRENT       1000
     #define Z_CURRENT_HOME  Z_CURRENT
     #define Z_MICROSTEPS     16
     #define Z_RSENSE          0.11
@@ -2290,7 +2290,7 @@
    * Beta feature!
    * Create a 50/50 square wave step pulse optimal for stepper drivers.
    */
-  // #define SQUARE_WAVE_STEPPING
+  #define SQUARE_WAVE_STEPPING
 
   /**
    * Enable M122 debugging command for TMC stepper drivers.
